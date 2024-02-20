@@ -236,64 +236,25 @@ const Form = () => {
 
           <div className="mb-4">
             <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
-            Physical Activity Level
+            Mind
             </label>
             <select
-              id="activityLevel"
-              name="activityLevel"
-              value={formData.activityLevel}
+              id="mind"
+              name="mind"
+              value={formData.mind}
               onChange={handleChange}
               className="w-full p-2 border rounded"
             >
               <option value="" disabled selected>
-                Select Activity Level
+                Your Mind
               </option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+              <option value="low">restless</option>
+              <option value="medium">Aggressive</option>
+              <option value="high">Calm and Cool</option>
             </select>
           </div>
 
-
-          <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
-              Activity Level
-            </label>
-            <select
-              id="activityLevel"
-              name="activityLevel"
-              value={formData.activityLevel}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            >
-              <option value="" disabled selected>
-                Select Activity Level
-              </option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
-              Activity Level
-            </label>
-            <select
-              id="activityLevel"
-              name="activityLevel"
-              value={formData.activityLevel}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            >
-              <option value="" disabled selected>
-                Select Activity Level
-              </option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
+             
           {/* ... */}
 
           {/* Submit Button */}
