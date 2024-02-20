@@ -9,24 +9,36 @@ import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { cn } from "@/lib/utils";
 const page = () => {
   const [messages, setMessages] = useState([]);
   const router = useRouter();
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      prompt: "",
-    },
-  });
+const form = useForm({
+  resolver: zodResolver(formSchema),
+  defaultValues: {
+    bodyWeight: "",
+    height: "",
+    sex: "",
+    age: "",
+    bodyFat: "",
+  },
+});
+
   const isLoading = form.formState.isSubmitting;
   const OnSubmit = async (values) => {
     try {
+      const { bodyWeight, height, sex, age, bodyFat} = values;
+
       const userMessage = {
         role: "user",
-        content: values.prompt,
+        content: bodyWeight,
+        height,
+        sex,
+        age,
+        bodyFat,
       };
       const newMessages = [...messages, userMessage];
-      const response = await axios.post("/api/gptint", {
+      const response = await axios.post("/api/gpt", {
         messages: newMessages,
       });
       setMessages((current) => [...current, userMessage, response.data]);
@@ -49,20 +61,81 @@ const page = () => {
                 className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
               >
                 <FormField
-                  name="prompt"
+                  name="bodyWeight"
                   render={({ field }) => (
-                    <FormItem className="col-span-12 lg:col-span-10">
+                    <FormItem className="col-span-12 lg:col-span-6">
                       <FormControl className="m-0 p-0">
                         <Input
                           className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                           disabled={isLoading}
-                          placeholder="Ask me Questions...I'll try to explain"
+                          placeholder="Body Weight"
                           {...field}
                         />
                       </FormControl>
                     </FormItem>
                   )}
                 />
+                <FormField
+                  name="height"
+                  render={({ field }) => (
+                    <FormItem className="col-span-12 lg:col-span-6">
+                      <FormControl className="m-0 p-0">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          disabled={isLoading}
+                          placeholder="Height"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  name="sex"
+                  render={({ field }) => (
+                    <FormItem className="col-span-12 lg:col-span-6">
+                      <FormControl className="m-0 p-0">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          disabled={isLoading}
+                          placeholder="sex"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  name="age"
+                  render={({ field }) => (
+                    <FormItem className="col-span-12 lg:col-span-6">
+                      <FormControl className="m-0 p-0">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          disabled={isLoading}
+                          placeholder="Age"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  name="bodyFat"
+                  render={({ field }) => (
+                    <FormItem className="col-span-12 lg:col-span-6">
+                      <FormControl className="m-0 p-0">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          disabled={isLoading}
+                          placeholder="BodyFat"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+
                 <Button
                   className="col-span-12 lg:col-span-2"
                   disabled={isLoading}
@@ -84,7 +157,7 @@ const page = () => {
                     : "bg-muted"
                 )}
               >
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                {/* {message.role === "user" ? <UserAvatar /> : <BotAvatar />} */}
                 <p className="text-sm">{String(message.content)}</p>
               </div>
             ))}
