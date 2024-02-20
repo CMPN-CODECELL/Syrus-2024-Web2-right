@@ -26,7 +26,7 @@ const tools = [
     desc: "Discover your body type (Prakruti) with our Ayurvedic assessment and receive customized fitness plans and diet recommendations.",
     color: "text-[#4CAF50]",
     bgColor: "text-white",
-    href: "/",
+    href: "/questions",
   },
   {
     label: "Diet Recommendations",
@@ -42,7 +42,7 @@ const tools = [
     desc: "Connect with others, share tips, and support each other. Earn badges and climb leaderboards based on your engagement and achievements.",
     color: "text-[#03A9F4]",
     bgColor: "text-white",
-    href: "/",
+    href: "/community",
   },
   {
     label: "Customer Support",
@@ -50,7 +50,7 @@ const tools = [
     desc: "Instant tech support via chatbot, ensuring a smooth learning experience.",
     color: "text-[#db4918]",
     bgColor: "text-white",
-    href: "/code",
+    href: "/",
   },
 ];
 export default function DashBoardPage() {

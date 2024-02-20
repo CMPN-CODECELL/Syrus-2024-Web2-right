@@ -9,10 +9,16 @@ import { Input } from "@/components/ui/input";
 import axios from "axios";
 import UserAvatar from "@/components/UserAvatar";
 import BotAvatar from "@/components/BotAvatar";
+<<<<<<< HEAD
 // import { cn } from "@/lib/utils";
 import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
+=======
+import { cn } from "@/lib/utils";
+import { formSchema } from "./constants";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+>>>>>>> ca85d0beb8d672748b153819fcbcc9511c0d467a
 const page = () => {
   const [messages, setMessages] = useState([]);
   const router = useRouter();

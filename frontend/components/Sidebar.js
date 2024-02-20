@@ -10,6 +10,7 @@ import {
   VideoIcon,
   FileSliders,
   Search,
+  SettingsIcon,
 } from "lucide-react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
@@ -22,7 +23,7 @@ const routes = [
     desc: "Discover your body type (Prakruti) with our Ayurvedic assessment and receive customized fitness plans and diet recommendations.",
     color: "text-[#4CAF50]",
     bgColor: "text-white",
-    href: "/",
+    href: "/questions",
   },
   {
     label: "Diet Recommendations",
@@ -38,7 +39,7 @@ const routes = [
     desc: "Connect with others, share tips, and support each other. Earn badges and climb leaderboards based on your engagement and achievements.",
     color: "text-[#03A9F4]",
     bgColor: "text-white",
-    href: "/",
+    href: "/community",
   },
   {
     label: "Customer Support",
@@ -70,7 +71,9 @@ const Sidebar = () => {
               key={route.href}
               className={cn(
                 "text-sm group flex p-3 w-full cursor-pointer justify-start font-medium hover:text-white hover:bg-white/10 rounded-lg transition",
-                pathname === route.href ? "text-white" : "text-zinc-400"
+                pathname === route.href
+                  ? "text-white bg-white/30"
+                  : "text-zinc-400"
               )}
             >
               <div className="flex items-center flex-1">
