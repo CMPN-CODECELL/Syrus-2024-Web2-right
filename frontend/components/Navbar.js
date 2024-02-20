@@ -16,13 +16,19 @@ const Navbar = async () => {
       <MobileSidebar />
       {/* <div className=""> */}
       <Link href="/dashboard" className="flex items-center">
-        <div className="relative h-8 w-8 mr-4 ml-8">
-          <Image fill src={"/logo.png"} alt="logo" />
+        <div className="relative h-8 w-12 mr-1 ml-8 ">
+          <Image
+            layout="fill"
+            fill
+            src={"/logo.png"}
+            alt="logo"
+            className="bg-transparent mix-blend-overlay"
+          />
         </div>
         <h1
           className={cn("text-2xl font-extrabold text-black", font.className)}
         >
-          Project
+          HealthHive
         </h1>
       </Link>
       {/* </div> */}

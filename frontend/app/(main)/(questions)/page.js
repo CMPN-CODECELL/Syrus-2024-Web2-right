@@ -59,7 +59,7 @@ export default function DashBoardPage() {
   return (
     <div className="p-4 md:p-8 lg:p-12">
       <div className="mb-8 space-y-4">
-        <div className="text-center mt-8">
+        <div className="text-center mt-0">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold">
             {/* <span className="text-[#333333]">Explore the Power of</span> */}
             <span className="text-[#4CAF50]">
@@ -68,8 +68,8 @@ export default function DashBoardPage() {
           </h1>
         </div>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Elevate Your Learning Experience with AI-Driven Conversations and
-          Insights.
+          Embark on a personalized well-being journey, blending ancient wisdom
+          with cutting-edge technology for a healthier, balanced you.
         </p>
       </div>
 
