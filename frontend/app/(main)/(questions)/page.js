@@ -42,7 +42,7 @@ const tools = [
     desc: "Connect with others, share tips, and support each other. Earn badges and climb leaderboards based on your engagement and achievements.",
     color: "text-[#03A9F4]",
     bgColor: "text-white",
-    href: "/",
+    href: "/community",
   },
   {
     label: "Customer Support",

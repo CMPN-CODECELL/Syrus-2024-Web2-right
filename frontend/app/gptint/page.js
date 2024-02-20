@@ -12,7 +12,6 @@ import BotAvatar from "@/components/BotAvatar";
 import { cn } from "@/lib/utils";
 import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { cn } from "@/lib/utils";
 const page = () => {
   const [messages, setMessages] = useState([]);
   const router = useRouter();
