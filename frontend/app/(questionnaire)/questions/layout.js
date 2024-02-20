@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { UserButton } from "@clerk/nextjs";
 
+
 const QuestionLayout = async ({ children }) => {
   return (
     <div className="h-full relative">
