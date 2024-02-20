@@ -33,7 +33,23 @@ def load_and_process_data(file_path):
     
     return ed
 
-def predict_recipe_instructions(input_data):
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        input_data = request.json.get('input_data')  # Extract input data from request
+        
+        # Extract 'body_type' and 'goal' from the input data
+        body_type = request.json.get('body_type')
+        goal = request.json.get('goal')
+        
+        # Predict instructions
+        predictions = predict_recipe_instructions(input_data, body_type, goal)
+        
+        return jsonify({"predictions": predictions.tolist()})
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
+def predict_recipe_instructions(input_data, body_type, goal):
     file_path = 'dataset.csv'
     data = load_and_process_data(file_path)
 
@@ -53,14 +69,13 @@ def predict_recipe_instructions(input_data):
         else:
             return 'maintenance'
 
-    data['body_type'] = data['ProteinContent'].apply(assign_body_type)
-    data['goal'] = data['ProteinContent'].apply(assign_goal)
-
-    # data['ProteinCategory'] = pd.cut(data['ProteinContent'], bins=3, labels=['low', 'medium', 'high'])
+    data['body_type'] = body_type
+    data['goal'] = goal
+    data['ProteinContent'] = input_data['ProteinContent']  # Include ProteinContent in data
 
     df = data[['RecipeInstructions', 'body_type', 'goal', 'Calories', 'FatContent', 'SaturatedFatContent', 
                 'CholesterolContent', 'SodiumContent', 'CarbohydrateContent', 
-                'FiberContent', 'SugarContent']]
+                'FiberContent', 'SugarContent', 'ProteinContent']]
 
     df_encoded = pd.get_dummies(df, columns=['body_type', 'goal'])
 
@@ -73,21 +88,14 @@ def predict_recipe_instructions(input_data):
     knn = KNeighborsClassifier(n_neighbors=5)
     knn.fit(X_normalized, y)
 
+    input_data['body_type'] = body_type
+    input_data['goal'] = goal
     input_df = pd.DataFrame(input_data, index=[0])
     input_df_encoded = pd.get_dummies(input_df, columns=['body_type', 'goal'])
     input_normalized = scaler.transform(input_df_encoded)
     predicted_output = knn.predict(input_normalized)
     
     return predicted_output
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    try:
-        input_data = request.json
-        predictions = predict_recipe_instructions(input_data)
-        return jsonify({"predictions": predictions.tolist()})
-    except Exception as e:
-        return jsonify({"error": str(e)})
 
 if __name__ == "__main__":
     app.run(debug=True)
