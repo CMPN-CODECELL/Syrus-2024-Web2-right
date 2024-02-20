@@ -2,13 +2,14 @@
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import {
-  CodeIcon,
-  ImageIcon,
-  LayoutDashboard,
-  MessageSquare,
-  MusicIcon,
-  SettingsIcon,
+  ArrowRight,
+  Headphones,
+  BarChart,
+  ActivitySquare,
+  Music,
   VideoIcon,
+  FileSliders,
+  Search,
 } from "lucide-react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
@@ -16,34 +17,36 @@ import Link from "next/link";
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 const routes = [
   {
-    label: "Dashboard",
-    icon: LayoutDashboard,
-    href: "/dashboard",
-    color: "text-sky-500",
+    label: "Personalized Health Assessment",
+    icon: ActivitySquare,
+    desc: "Discover your body type (Prakruti) with our Ayurvedic assessment and receive customized fitness plans and diet recommendations.",
+    color: "text-[#4CAF50]",
+    bgColor: "text-white",
+    href: "/",
   },
   {
-    label: "Summary Generation",
-    icon: MessageSquare,
-    href: "/summary",
-    color: "text-violet-500",
+    label: "Diet Recommendations",
+    icon: FileSliders,
+    desc: "Get personalized diet plans based on your body type, fitness goals, and dietary preferences, powered by machine learning.",
+    color: "text-[#FFEB3B]",
+    bgColor: "text-white",
+    href: "/",
   },
   {
-    label: "Ask Questions",
-    icon: ImageIcon,
-    href: "/summary",
-    color: "text-pink-500",
-  },
-  {
-    label: "Audio Generation",
-    icon: MusicIcon,
-    href: "/#",
-    color: "text-emerald-500",
+    label: "Community Forums and Leaderboards",
+    icon: BarChart,
+    desc: "Connect with others, share tips, and support each other. Earn badges and climb leaderboards based on your engagement and achievements.",
+    color: "text-[#03A9F4]",
+    bgColor: "text-white",
+    href: "/",
   },
   {
     label: "Customer Support",
-    icon: SettingsIcon,
-    href: "/#",
-    color: "text-green-700",
+    icon: Headphones,
+    desc: "Instant tech support via chatbot, ensuring a smooth learning experience.",
+    color: "text-[#db4918]",
+    bgColor: "text-white",
+    href: "/",
   },
 ];
 
@@ -67,9 +70,7 @@ const Sidebar = () => {
               key={route.href}
               className={cn(
                 "text-sm group flex p-3 w-full cursor-pointer justify-start font-medium hover:text-white hover:bg-white/10 rounded-lg transition",
-                pathname === route.href
-                  ? "text-white bg-white/10"
-                  : "text-zinc-400"
+                pathname === route.href ? "text-white" : "text-zinc-400"
               )}
             >
               <div className="flex items-center flex-1">
