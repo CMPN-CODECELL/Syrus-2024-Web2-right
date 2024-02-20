@@ -82,11 +82,9 @@ const DailyTracking = () => {
       const storedDay = storedDate.getDate();
 
       // Reset the form if it's a new day
-      if (currentDay !== storedDay) {
-        setFormData(initialFormData);
-      } else {
-        // Populate the form with stored data
-        setFormData(data);
+      // If the form was submitted on the same day, set formSubmitted to true
+      if (currentDay === storedDay) {
+        setFormSubmitted(true);
       }
     }
   }, []);
@@ -108,6 +106,7 @@ const DailyTracking = () => {
               value={formData.waterIntake}
               onChange={handleChange}
               className="w-full p-2 border rounded"
+              // disabled={formSubmitted}
             />
           </div>
 
@@ -134,6 +133,7 @@ const DailyTracking = () => {
               value={formData.calorieCount}
               onChange={handleChange}
               className="w-full p-2 border rounded"
+              // disabled={formSubmitted}
             />
           </div>
 
@@ -148,6 +148,7 @@ const DailyTracking = () => {
               value={formData.stepsWalked}
               onChange={handleChange}
               className="w-full p-2 border rounded"
+              // disabled={formSubmitted}
             />
           </div>
 
