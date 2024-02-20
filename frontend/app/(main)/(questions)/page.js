@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -55,7 +55,8 @@ const tools = [
 ];
 export default function DashBoardPage() {
   const router = useRouter();
-
+  const auth = useAuth();
+  console.log(auth);
   return (
     <div className="p-4 md:p-8 lg:p-12">
       <div className="mb-8 space-y-4">
