@@ -7,6 +7,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
+import UserAvatar from "@/components/UserAvatar";
+import BotAvatar from "@/components/BotAvatar";
+import { cn } from "@/lib/utils";
 import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 const page = () => {
@@ -26,7 +29,7 @@ const page = () => {
         content: values.prompt,
       };
       const newMessages = [...messages, userMessage];
-      const response = await axios.post("/api/gptint", {
+      const response = await axios.post("/api/gpt", {
         messages: newMessages,
       });
       setMessages((current) => [...current, userMessage, response.data]);
