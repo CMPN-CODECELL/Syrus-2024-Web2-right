@@ -1,0 +1,18 @@
+[{
+    "RecipeId": 1,
+    "Name": "Sample Recipe",
+    "CookTime": "30 mins",
+    "PrepTime": "15 mins",
+    "TotalTime": "45 mins",
+    "RecipeIngredientParts": "['ingredient1', 'ingredient2']",
+    "Calories": 500,
+    "FatContent": 20,
+    "SaturatedFatContent": 5,
+    "CholesterolContent": 50,
+    "SodiumContent": 500,
+    "CarbohydrateContent": 60,
+    "FiberContent": 10,
+    "SugarContent": 20,
+    "ProteinContent": 30,
+    ""
+}]
