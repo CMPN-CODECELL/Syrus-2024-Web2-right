@@ -33,15 +33,13 @@ const Comments = ({ commentid, comment, originalPostId }) => {
   const router = useRouter();
   useEffect(() => {
     onSnapshot(
-      collection(db, "posts", originalPostId, "comments", commentid, "likes"),
+      collection(db, "posts", originalPostId, "comments"),
       (snapshot) => setLikes(snapshot.docs)
     );
   }, [db, originalPostId, commentid]);
 
   useEffect(() => {
-    sethasLiked(
-      likes.findIndex((like) => like.id === session?.user.uid) !== -1
-    );
+    sethasLiked(likes.findIndex((like) => like.id === user.id) !== -1);
   }, [likes]);
 
   async function likeComment() {
@@ -70,7 +68,7 @@ const Comments = ({ commentid, comment, originalPostId }) => {
             user.id
           ),
           {
-            username: session.user.username,
+            username: user.firstName,
           }
         );
       }
@@ -143,8 +141,8 @@ const Comments = ({ commentid, comment, originalPostId }) => {
             {likes.length > 0 && <span>{likes.length}</span>}
           </div>
 
-          <ShareIcon className="h-9  w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" />
-          <ChartBarIcon className="h-9 w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" />
+          {/* <ShareIcon className="h-9  w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" />
+          <ChartBarIcon className="h-9 w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" /> */}
         </div>
       </div>
     </div>

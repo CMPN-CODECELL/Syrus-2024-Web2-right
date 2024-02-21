@@ -1,4 +1,3 @@
-// components/AppointmentScheduler.js
 "use client";
 import React, { useState } from "react";
 import { db } from "@/firebase";
@@ -121,7 +120,7 @@ const AppointmentScheduler = () => {
       <button
         onClick={() => {
           scheduleAppointment();
-          router.push("viewappointments");
+          router.push("/viewappointments");
         }}
         className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >

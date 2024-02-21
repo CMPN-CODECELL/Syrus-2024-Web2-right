@@ -43,9 +43,9 @@ export default function PostPage() {
     setUsers(usersData);
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
   //Get the post data
   useEffect(() => {
     onSnapshot(doc(db, "posts", id), (snapshot) => {
@@ -64,7 +64,7 @@ export default function PostPage() {
   return (
     <main className="flex min-h-screen max-w-full mx-auto">
       {/* <Sidebar /> */}
-      <div className="xl:ml-[360px] border-l border-gray-200 border-r xl:min-w-[676px] sm:ml-[70px] flex-grow max-w-[676px] ">
+      <div className="border-l border-gray-200 border-r xl:min-w-[676px] sm:ml-[70px] w-full mr-16">
         <div className=" items-center flex py-2 px-3 sticky top-0 z-50 bg-white border-b border-gray-200">
           <div
             onClick={() => router.push("/")}
@@ -73,7 +73,7 @@ export default function PostPage() {
             <ArrowLeftIcon className="h-5" />
           </div>
           <h2 className="xl:text-lg sm:text-xl font-bold cursor-pointer ">
-            Tweet
+            Post
           </h2>
         </div>
         <Post id={id} post={post} />
@@ -88,7 +88,7 @@ export default function PostPage() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1 }}
                 >
-                  <Comment
+                  <Comments
                     key={comment.id}
                     commentId={comment.id}
                     originalPostId={id}

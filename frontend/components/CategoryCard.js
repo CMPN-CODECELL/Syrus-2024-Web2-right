@@ -5,13 +5,7 @@ import Image from "next/image";
 import CategoryHeading from "./CategoryHeading";
 import { ArrowSmRightIcon } from "@heroicons/react/outline";
 
-interface CategoryCardProps {
-  id: number;
-  title: string;
-  image: string;
-}
-
-const CategoryCard = ({ id, title, image }: CategoryCardProps) => {
+const CategoryCard = ({ id, title, image }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <>
