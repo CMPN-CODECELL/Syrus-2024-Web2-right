@@ -26,7 +26,7 @@ const tools = [
     desc: "Get Up with your mental Health and Stay Happy and stay calm",
     color: "text-[#03A9F4]",
     bgColor: "text-white",
-    href: "/community",
+    href: "/mental-health",
   },
   {
     label: "Personalized Health Assessment",
@@ -42,7 +42,7 @@ const tools = [
     desc: "Get personalized diet plans based on your body type, fitness goals, and dietary preferences, powered by machine learning.",
     color: "text-[#FFEB3B]",
     bgColor: "text-white",
-    href: "/",
+    href: "/recommendations",
   },
   {
     label: "Community Forums and Leaderboards",
@@ -51,6 +51,14 @@ const tools = [
     color: "text-[#03A9F4]",
     bgColor: "text-white",
     href: "/community",
+  },
+  {
+    label: "Book an Appointment",
+    icon: Headphones,
+    desc: "Book an appointment with experts",
+    color: "text-[#db4918]",
+    bgColor: "text-white",
+    href: "/viewappointments",
   },
   {
     label: "Customer Support",

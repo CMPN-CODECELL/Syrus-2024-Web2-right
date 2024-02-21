@@ -73,7 +73,7 @@ export default function PostPage() {
             <ArrowLeftIcon className="h-5" />
           </div>
           <h2 className="xl:text-lg sm:text-xl font-bold cursor-pointer ">
-            Tweet
+            Post
           </h2>
         </div>
         <Post id={id} post={post} />
