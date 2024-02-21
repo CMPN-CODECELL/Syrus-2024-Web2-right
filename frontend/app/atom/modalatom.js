@@ -13,5 +13,5 @@ export const postIdState = atom({
 
 export const bodyType = atom({
   key:"bodytype",
-  default:[],
+  default:"",
 });

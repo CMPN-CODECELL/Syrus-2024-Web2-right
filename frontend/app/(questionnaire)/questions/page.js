@@ -32,12 +32,7 @@ const Form = () => {
     e.preventDefault();
     try {
       // Destructure form data
-      const {
-        bodyweight,
-        height,
-        gender,
-        age,
-      } = formData;
+      const { bodyweight, height, gender, age } = formData;
 
       // Construct the data object to be sent in the request
       const data = {
@@ -51,11 +46,11 @@ const Form = () => {
       const response = await axios.post("/api/gpt", {
         messages: { data }, // Pass form data as messages: {data}
       });
-      setMessages((current) => [...current, response.data]);
+      setMessages(() => response.data);
 
       // // Process the response as needed
       // console.log(response.data);
-      alert("Body Examined Successfully")
+      alert("Body Examined Successfully");
     } catch (error) {
       // Handle errors
       console.error("Error:", error);
@@ -63,7 +58,7 @@ const Form = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 pt-10">
       <div className="bg-white p-8 rounded shadow-md w-[60%] max-w-screen-lg">
         <form onSubmit={handleSubmit}>
           {/* Personal Information */}
@@ -334,27 +329,24 @@ const Form = () => {
             Submit
           </button>
         </form>
-
+        <div className="flex flex-col reverse gap-y-4">
+          <div
+            key={String(messages.content)}
+            className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg")}
+          >
+            {/* {message.role === "user" ? <UserAvatar /> : <BotAvatar />} */}
+            {messages.content && (
+              <p className="text-sm">
+                {String(
+                  ` After examining your Body, Your body relates with ${messages.content} Dosha BodyType according to Ayurveda.`
+                )}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Form;
-
-        // <div className="flex flex-col reverse gap-y-4">
-        //   {messages.map((message) => (
-        //     <div
-        //       key={String(message.content)}
-        //       className={cn(
-        //         "p-8 w-full flex items-start gap-x-8 rounded-lg",
-        //         message.role === "user"
-        //           ? "bg-white border border-black/10"
-        //           : "bg-muted"
-        //       )}
-        //     >
-        //       {/* {message.role === "user" ? <UserAvatar /> : <BotAvatar />} */}
-        //       <p className="text-sm">{String(message.content)}</p>
-        //     </div>
-        //   ))}
-        // </div>;

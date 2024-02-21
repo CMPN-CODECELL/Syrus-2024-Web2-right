@@ -21,6 +21,14 @@ import { cn } from "@/lib/utils";
 
 const tools = [
   {
+    label: "How are you Feeling",
+    icon: Headphones,
+    desc: "Get Up with your mental Health and Stay Happy and stay calm",
+    color: "text-[#03A9F4]",
+    bgColor: "text-white",
+    href: "/community",
+  },
+  {
     label: "Personalized Health Assessment",
     icon: ActivitySquare,
     desc: "Discover your body type (Prakruti) with our Ayurvedic assessment and receive customized fitness plans and diet recommendations.",
