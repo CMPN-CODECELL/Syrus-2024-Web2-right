@@ -22,7 +22,9 @@ const GeneralWorry = () => {
   };
 
   return (
-    <div className="bg-blue-500 text-white text-center py-8">
+    <div className='flex justify-center'>
+      <div className='w-[700px] min-w-700 h-[100vh] flex justify-center'>
+          <div className="bg-blue-500 text-white text-center py-8">
       <h1 className="text-3xl font-bold">General Worry</h1>
       <div className="flex justify-center mt-4 space-x-4">
         {options.map((option) => (
@@ -47,11 +49,9 @@ const GeneralWorry = () => {
         {selectedOption === 'signs' && (
           <div>
             <h2 className="text-2xl font-bold mb-4">Signs of General Worry</h2>
-            <p>People who have problems with excessive and uncontrollable worry tend to experience symptoms in the following areas:
-Body - what we feel physically and emotionally
-Mind - what we think
-Behaviours - what we do
-Body
+            <p>There may be times when your worries don't completely consume you, but you still feel anxious even when there's no apparent reason. For example, you may feel intense worry about your safety or that of your loved ones, or you may have a general sense that something bad is about to happen.
+
+Your anxiety, worry or physical symptoms cause you significant distress in social, work or other areas of your life. Worries can shift from one concern to another and may change with time and age.
 </p>
           </div>
         )}
@@ -75,7 +75,7 @@ Body
       </div>
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">Common Reasons for Worry</h2>
-        <div className="flex space-x-4">
+        <div className="flex justify-center space-x-4">
           {reasonsForWorry.map((reason) => (
             <div key={reason.id} className="flex-shrink-0 w-48 p-4 bg-blue-300 hover:bg-blue-400 rounded-md transition duration-300">
               <h3 className="text-xl font-bold mb-2">{reason.title}</h3>
@@ -84,6 +84,8 @@ Body
           ))}
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 };

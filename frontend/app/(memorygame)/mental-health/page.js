@@ -51,7 +51,7 @@ const ToolsSection = [
     id: 3,
     title: 'Chill Zone',
     description: 'Find a relaxing space with calming activities to help alleviate stress.',
-    // link: '/chill-zone', // Replace with the actual route for chill zone
+    link: '/mental-health/chill-zone', // Replace with the actual route for chill zone
   },
   {
     id: 4,

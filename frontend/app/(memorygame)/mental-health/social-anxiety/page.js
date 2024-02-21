@@ -22,7 +22,8 @@ const GeneralWorry = () => {
   };
 
   return (
-    <div className="bg-blue-500 text-white text-center py-8">
+    <div className='flex justify-center'>
+      <div className="bg-blue-500 text-white w-[700px] text-center py-8">
       <h1 className="text-3xl font-bold">Social Anxiety</h1>
       <div className="flex justify-center mt-4 space-x-4">
         {options.map((option) => (
@@ -40,19 +41,17 @@ const GeneralWorry = () => {
       <div className="mt-8">
         {selectedOption === 'intro' && (
           <div>
-            <h2 className="text-2xl font-bold mb-4">Introduction to General Worry</h2>
+            <h2 className="text-2xl font-bold mb-4">Introduction to Social Anxiety</h2>
             <p>Most people get anxious in some social situations, like before a job interview or when giving a speech. However, some people get overly anxious in social situations. They tend to worry about doing something embarrassing or that others will think badly of them. They also tend to avoid social situations or endure them with great distress. Social anxiety becomes problematic when it interferes with daily life. If you tend to feel overly anxious in social situations, social anxiety may be an issue for you..</p>
           </div>
         )}
         {selectedOption === 'signs' && (
           <div>
-            <h2 className="text-2xl font-bold mb-4">Signs of General Worry</h2>
-            <p>People who have problems with excessive and uncontrollable worry tend to experience symptoms in the following areas:
-Body - what we feel physically and emotionally
-Mind - what we think
-Behaviours - what we do
-Body
-</p>
+            <h2 className="text-2xl font-bold mb-4">Signs of Social Anxiety</h2>
+            <p>
+            Feelings of shyness or discomfort in certain situations aren't necessarily signs of social anxiety disorder, particularly in children. Comfort levels in social situations vary, depending on personality traits and life experiences. Some people are naturally reserved and others are more outgoing.
+            In contrast to everyday nervousness, social anxiety disorder includes fear, anxiety and avoidance that interfere with relationships, daily routines, work, school or other activities. Social anxiety disorder typically begins in the early to mid-teens, though it can sometimes start in younger children or in adults.
+            </p>
           </div>
         )}
         {selectedOption === 'tips' && (
@@ -74,8 +73,8 @@ Body
         )}
       </div>
       <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">Common Reasons for Worry</h2>
-        <div className="flex space-x-4">
+        <h2 className="text-2xl font-bold mb-4">Common Reasons for Social Anxiety</h2>
+        <div className="flex justify-center space-x-4">
           {reasonsForWorry.map((reason) => (
             <div key={reason.id} className="flex-shrink-0 w-48 p-4 bg-blue-300 hover:bg-blue-400 rounded-md transition duration-300">
               <h3 className="text-xl font-bold mb-2">{reason.title}</h3>
@@ -84,6 +83,7 @@ Body
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };
