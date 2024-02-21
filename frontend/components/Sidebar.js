@@ -31,7 +31,7 @@ const routes = [
     desc: "Get personalized diet plans based on your body type, fitness goals, and dietary preferences, powered by machine learning.",
     color: "text-[#FFEB3B]",
     bgColor: "text-white",
-    href: "/",
+    href: "/recommendedfood",
   },
   {
     label: "Community Forums and Leaderboards",
