@@ -144,8 +144,8 @@ const Post = ({ post, id }) => {
             {likes?.length > 0 && <span>{likes?.length}</span>}
           </div>
 
-          <ShareIcon className="h-9  w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" />
-          <ChartBarIcon className="h-9 w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" />
+          {/* <ShareIcon className="h-9  w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" />
+          <ChartBarIcon className="h-9 w-9 hoverEffect rounded-full hover:bg-blue-200 p-2" /> */}
         </div>
       </div>
     </div>

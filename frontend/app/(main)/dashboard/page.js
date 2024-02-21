@@ -12,6 +12,7 @@ import {
   ActivitySquare,
   Music,
   VideoIcon,
+  NotepadText,
   FileSliders,
   Search,
 } from "lucide-react";
@@ -45,9 +46,9 @@ const tools = [
     href: "/recommendedfood",
   },
   {
-    label: "Community Forums and Leaderboards",
+    label: "Community Forums",
     icon: BarChart,
-    desc: "Connect with others, share tips, and support each other. Earn badges and climb leaderboards based on your engagement and achievements.",
+    desc: "Connect with others, share tips, and support each other.",
     color: "text-[#03A9F4]",
     bgColor: "text-white",
     href: "/community",
@@ -58,15 +59,15 @@ const tools = [
     desc: "Book an appointment with experts",
     color: "text-[#db4918]",
     bgColor: "text-white",
-    href: "/viewappointments",
+    href: "/booking",
   },
   {
-    label: "Customer Support",
-    icon: Headphones,
+    label: "View your appointments",
+    icon: NotepadText,
     desc: "Instant tech support via chatbot, ensuring a smooth learning experience.",
-    color: "text-[#db4918]",
+    color: "text-[#db49f8]",
     bgColor: "text-white",
-    href: "/",
+    href: "/viewappointments",
   },
 ];
 export default function DashBoardPage() {

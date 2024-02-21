@@ -90,7 +90,7 @@ const Input = ({ user }) => {
         <div className="flex items-center justify-between pt-1.5">
           <div className="flex">
             <div onClick={() => filePickerRef.current.click()}>
-              <PhotographIcon className="h-10 w-10 p-2 text-sky-300 hoverEffect hover:bg-blue-100" />
+              <PhotographIcon className="h-10 w-10 p-2 text-[#4CAF50]/90 hoverEffect hover:bg-blue-100" />
               <input
                 hidden
                 ref={filePickerRef}
@@ -99,13 +99,13 @@ const Input = ({ user }) => {
               />
             </div>
 
-            <EmojiHappyIcon className="h-10 w-10 p-2  text-sky-300 hoverEffect hover:bg-blue-100" />
+            <EmojiHappyIcon className="h-10 w-10 p-2  text-[#4CAF50]/90 hoverEffect hover:bg-blue-100" />
           </div>
 
           <button
             onClick={sendPost}
             disabled={!input.trim()}
-            className="text-white bg-blue-400 font-bold rounded-full px-6 py-1.5 shadow-md hover:brightness-95"
+            className="text-white bg-[#4CAF50] font-bold rounded-full px-6 py-1.5 shadow-md hover:brightness-95"
           >
             Post!
           </button>

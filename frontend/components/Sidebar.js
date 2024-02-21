@@ -7,7 +7,7 @@ import {
   BarChart,
   ActivitySquare,
   Music,
-  VideoIcon,
+  NotepadText,
   FileSliders,
   Search,
   SettingsIcon,
@@ -17,6 +17,14 @@ import Image from "next/image";
 import Link from "next/link";
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 const routes = [
+  {
+    label: "How are you Feeling",
+    icon: Headphones,
+    desc: "Get Up with your mental Health and Stay Happy and stay calm",
+    color: "text-[#03A9F4]",
+    bgColor: "text-white",
+    href: "/mental-health",
+  },
   {
     label: "Personalized Health Assessment",
     icon: ActivitySquare,
@@ -34,20 +42,28 @@ const routes = [
     href: "/recommendedfood",
   },
   {
-    label: "Community Forums and Leaderboards",
+    label: "Community Forums ",
     icon: BarChart,
-    desc: "Connect with others, share tips, and support each other. Earn badges and climb leaderboards based on your engagement and achievements.",
+    desc: "Connect with others, share tips, and support each other.",
     color: "text-[#03A9F4]",
     bgColor: "text-white",
     href: "/community",
   },
   {
-    label: "Customer Support",
+    label: "Book an Appointment",
     icon: Headphones,
-    desc: "Instant tech support via chatbot, ensuring a smooth learning experience.",
+    desc: "Book an appointment with experts.Connect",
     color: "text-[#db4918]",
     bgColor: "text-white",
-    href: "/",
+    href: "/booking",
+  },
+  {
+    label: "View your appointments",
+    icon: NotepadText,
+    desc: "Instant tech support via chatbot, ensuring a smooth learning experience.",
+    color: "text-[#db49f8]",
+    bgColor: "text-white",
+    href: "/viewappointments",
   },
 ];
 

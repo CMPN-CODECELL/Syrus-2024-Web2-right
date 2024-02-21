@@ -40,9 +40,9 @@ const Feed = () => {
         >
           Home
         </div>
-        <div className="hoverEffect px-0 flex items-center justify-center ml-auto w-9 h-9">
+        {/* <div className="hoverEffect px-0 flex items-center justify-center ml-auto w-9 h-9">
           <SparklesIcon className="h-5 " />
-        </div>
+        </div> */}
       </div>
       {user && <Input user={user} />}
 
