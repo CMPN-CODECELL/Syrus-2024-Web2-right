@@ -9,34 +9,27 @@ import { Input } from "@/components/ui/input";
 import axios from "axios";
 import UserAvatar from "@/components/UserAvatar";
 import BotAvatar from "@/components/BotAvatar";
-<<<<<<< HEAD
-// import { cn } from "@/lib/utils";
-import { formSchema } from "./constants";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { cn } from "@/lib/utils";
-=======
 import { cn } from "@/lib/utils";
 import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
->>>>>>> ca85d0beb8d672748b153819fcbcc9511c0d467a
 const page = () => {
   const [messages, setMessages] = useState([]);
   const router = useRouter();
-const form = useForm({
-  resolver: zodResolver(formSchema),
-  defaultValues: {
-    bodyWeight: "",
-    height: "",
-    sex: "",
-    age: "",
-    bodyFat: "",
-  },
-});
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      bodyWeight: "",
+      height: "",
+      sex: "",
+      age: "",
+      bodyFat: "",
+    },
+  });
 
   const isLoading = form.formState.isSubmitting;
   const OnSubmit = async (values) => {
     try {
-      const { bodyWeight, height, sex, age, bodyFat} = values;
+      const { bodyWeight, height, sex, age, bodyFat } = values;
 
       const userMessage = {
         role: "user",
@@ -131,6 +124,21 @@ const form = useForm({
                 />
                 <FormField
                   name="bodyFat"
+                  render={({ field }) => (
+                    <FormItem className="col-span-12 lg:col-span-6">
+                      <FormControl className="m-0 p-0">
+                        <Input
+                          className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                          disabled={isLoading}
+                          placeholder="BodyFat"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  name="hairtype"
                   render={({ field }) => (
                     <FormItem className="col-span-12 lg:col-span-6">
                       <FormControl className="m-0 p-0">

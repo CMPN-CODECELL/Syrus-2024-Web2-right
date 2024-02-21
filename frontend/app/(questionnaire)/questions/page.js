@@ -1,21 +1,26 @@
 // pages/form.js
-"use client"
-import React, { useState } from 'react';
+"use client";
+import { bodyType } from "@/app/atom/modalatom";
+import { cn } from "@/lib/utils";
+import axios from "axios";
+import React, { useState } from "react";
+import { useRecoilState } from "recoil";
 
 const Form = () => {
+  const [messages, setMessages] = useRecoilState(bodyType);
   const [formData, setFormData] = useState({
-    bodyweight: '',
-    height: '',
-    gender: '',
-    age: '',
-    activityLevel: '',
-    bodyFrame: '',
-    appetite: '',
-    skinType: '',
-    hairType: '',
-    lipsAndTeeth: '',
-    eyes: '',
-    mind: '',
+    bodyweight: "",
+    height: "",
+    gender: "",
+    age: "",
+    activityLevel: "",
+    bodyFrame: "",
+    appetite: "",
+    skinType: "",
+    hairType: "",
+    lipsAndTeeth: "",
+    eyes: "",
+    mind: "",
   });
 
   const handleChange = (e) => {
@@ -23,19 +28,50 @@ const Form = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your logic for form submission or data handling here
-    console.log('Form Data:', formData);
+    try {
+      // Destructure form data
+      const {
+        bodyweight,
+        height,
+        gender,
+        age,
+      } = formData;
+
+      // Construct the data object to be sent in the request
+      const data = {
+        bodyweight,
+        height,
+        gender,
+        age,
+      };
+
+      // Send POST request to the API endpoint
+      const response = await axios.post("/api/gpt", {
+        messages: { data }, // Pass form data as messages: {data}
+      });
+      setMessages((current) => [...current, response.data]);
+
+      // // Process the response as needed
+      // console.log(response.data);
+      alert("Body Examined Successfully")
+    } catch (error) {
+      // Handle errors
+      console.error("Error:", error);
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-screen-lg">
+      <div className="bg-white p-8 rounded shadow-md w-[60%] max-w-screen-lg">
         <form onSubmit={handleSubmit}>
           {/* Personal Information */}
           <div className="mb-4">
-            <label htmlFor="bodyweight" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="bodyweight"
+              className="block text-sm font-medium text-gray-600"
+            >
               Bodyweight (kg)
             </label>
             <input
@@ -49,7 +85,10 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="height" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="height"
+              className="block text-sm font-medium text-gray-600"
+            >
               Height (cm)
             </label>
             <input
@@ -63,7 +102,10 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="gender" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="gender"
+              className="block text-sm font-medium text-gray-600"
+            >
               Gender
             </label>
             <input
@@ -77,7 +119,10 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="age" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="age"
+              className="block text-sm font-medium text-gray-600"
+            >
               Age
             </label>
             <input
@@ -92,7 +137,10 @@ const Form = () => {
 
           {/* Additional Characteristics */}
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
               Activity Level
             </label>
             <select
@@ -111,12 +159,14 @@ const Form = () => {
             </select>
           </div>
 
-
           {/* Repeat the above pattern for other characteristics */}
 
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
-            Your body frame
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Your body frame
             </label>
             <select
               id="bodyFrame"
@@ -135,8 +185,11 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
-             Appetite
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Appetite
             </label>
             <select
               id="appetite"
@@ -155,7 +208,10 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
               Skin Type
             </label>
             <select
@@ -175,7 +231,10 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
               Hair Type
             </label>
             <select
@@ -195,7 +254,10 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
               Lips and Teeth
             </label>
             <select
@@ -210,13 +272,18 @@ const Form = () => {
               </option>
               <option value="low">Thin Lips and uneven Teeth</option>
               <option value="medium">Medium lips and mediums Teeth</option>
-              <option value="high">Large/Smooth lips and well formed Teeth</option>
+              <option value="high">
+                Large/Smooth lips and well formed Teeth
+              </option>
             </select>
           </div>
 
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
-             Eyes
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Eyes
             </label>
             <select
               id="eyes"
@@ -235,8 +302,11 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-600">
-            Mind
+            <label
+              htmlFor="activityLevel"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Mind
             </label>
             <select
               id="mind"
@@ -254,7 +324,6 @@ const Form = () => {
             </select>
           </div>
 
-             
           {/* ... */}
 
           {/* Submit Button */}
@@ -265,9 +334,27 @@ const Form = () => {
             Submit
           </button>
         </form>
+
       </div>
     </div>
   );
 };
 
 export default Form;
+
+        // <div className="flex flex-col reverse gap-y-4">
+        //   {messages.map((message) => (
+        //     <div
+        //       key={String(message.content)}
+        //       className={cn(
+        //         "p-8 w-full flex items-start gap-x-8 rounded-lg",
+        //         message.role === "user"
+        //           ? "bg-white border border-black/10"
+        //           : "bg-muted"
+        //       )}
+        //     >
+        //       {/* {message.role === "user" ? <UserAvatar /> : <BotAvatar />} */}
+        //       <p className="text-sm">{String(message.content)}</p>
+        //     </div>
+        //   ))}
+        // </div>;
